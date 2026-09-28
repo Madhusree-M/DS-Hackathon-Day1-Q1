@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   TrendingUp, TrendingDown, DollarSign, Percent, ShoppingBag, 
   BarChart2, PieChart, Users, Cpu, ShieldAlert, CheckCircle2, 
-  Sliders, FileText, RefreshCw, Award
+  Sliders, FileText, RefreshCw, AlertCircle, ArrowUpRight, ArrowDownRight
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:5001';
@@ -11,7 +11,6 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('insights');
   const [loading, setLoading] = useState(true);
   const [overview, setOverview] = useState(null);
-  const [insights, setInsights] = useState([]);
   const [financials, setFinancials] = useState(null);
   const [customerData, setCustomerData] = useState(null);
   const [mlData, setMlData] = useState(null);
@@ -33,9 +32,8 @@ export default function App() {
   const fetchDashboardData = async () => {
     setLoading(true);
     try {
-      const [ovRes, inRes, finRes, custRes, mlRes, actRes, dsRes] = await Promise.all([
+      const [ovRes, finRes, custRes, mlRes, actRes, dsRes] = await Promise.all([
         fetch(`${API_BASE}/api/overview`),
-        fetch(`${API_BASE}/api/insights`),
         fetch(`${API_BASE}/api/financial-analysis`),
         fetch(`${API_BASE}/api/customer-behavior`),
         fetch(`${API_BASE}/api/ml/evaluation`),
@@ -44,7 +42,6 @@ export default function App() {
       ]);
 
       if (ovRes.ok) setOverview(await ovRes.json());
-      if (inRes.ok) setInsights(await inRes.json());
       if (finRes.ok) setFinancials(await finRes.json());
       if (custRes.ok) setCustomerData(await custRes.json());
       if (mlRes.ok) setMlData(await mlRes.json());
@@ -82,6 +79,73 @@ export default function App() {
     runSimulation();
   }, [simCategory, simPrice, simDiscount, simQuantity, simLogistics]);
 
+  // Clean 7 Insights Data (Numbers + Status + Action, Zero Paragraphs)
+  const cleanInsights = [
+    {
+      id: 1,
+      metric: "Volume Elasticity",
+      value: "3.01 vs 3.05 units",
+      change: "Flat (ε ≈ 0.01)",
+      status: "Inelastic",
+      statusType: "danger",
+      action: "Require quantity hurdles (Buy 3 Get 15%)"
+    },
+    {
+      id: 2,
+      metric: "Electronics at 30% Off",
+      value: "-$7.51 / order",
+      change: "-102.8% margin",
+      status: "Loss-Making",
+      statusType: "danger",
+      action: "Cap maximum discount at 10%"
+    },
+    {
+      id: 3,
+      metric: "Discount Profit Penalty",
+      value: "-$132.31 / order",
+      change: "$437 full vs $305 promo",
+      status: "-30.2% Profit",
+      statusType: "danger",
+      action: "Eliminate universal storewide markdowns"
+    },
+    {
+      id: 4,
+      metric: "Total Conceded Margin",
+      value: "$6.78 Million",
+      change: "59.8% orders discounted",
+      status: "Margin Drain",
+      statusType: "danger",
+      action: "Shift discount budget to high-margin categories"
+    },
+    {
+      id: 5,
+      metric: "Books & Apparel Resilience",
+      value: "+$287 to $358 / order",
+      change: "40-45% low COGS",
+      status: "Profitable",
+      statusType: "success",
+      action: "Safe to promote up to 25%"
+    },
+    {
+      id: 6,
+      metric: "Promo Buyer Behavior",
+      value: "62% Deal Chasers",
+      change: "Never buy full price",
+      status: "High Churn",
+      statusType: "warning",
+      action: "Gate discounts behind VIP loyalty tiers"
+    },
+    {
+      id: 7,
+      metric: "Regression Profit Drag",
+      value: "-$65.82 / 10% discount",
+      change: "R² = 0.8339",
+      status: "Linear Loss",
+      statusType: "danger",
+      action: "Simulate discount limits before launch"
+    }
+  ];
+
   return (
     <div className="app-container">
       {/* Header */}
@@ -89,17 +153,17 @@ export default function App() {
         <div className="header-inner">
           <div className="brand-wrapper">
             <div className="brand-icon">
-              <TrendingUp size={20} />
+              <TrendingUp size={18} />
             </div>
             <div>
               <div className="brand-title">E-Commerce Discount & Profitability Intelligence</div>
-              <div className="brand-subtitle">DS_Day01_15 • 100,000 Verified Orders</div>
+              <div className="brand-subtitle">DS_Day01_15 • 100,000 Orders</div>
             </div>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-            <span className="badge-tag">Linear Regression ML (R² = 0.834)</span>
+            <span className="badge-tag">Linear Regression (R² = 0.834)</span>
             <span className="badge-tag" style={{ background: '#ECFDF5', color: '#059669', borderColor: '#A7F3D0' }}>
-              Cleaned & Validated
+              Verified Data
             </span>
           </div>
         </div>
@@ -118,25 +182,25 @@ export default function App() {
             <div className="kpi-card highlight-success">
               <span className="kpi-label"><TrendingUp size={13} /> Contribution Margin</span>
               <span className="kpi-value">${(overview.total_contribution_margin / 1000000).toFixed(1)}M</span>
-              <span className="kpi-subtext">{overview.overall_margin_rate.toFixed(1)}% margin efficiency</span>
+              <span className="kpi-subtext">{overview.overall_margin_rate.toFixed(1)}% margin rate</span>
             </div>
 
             <div className="kpi-card highlight-danger">
-              <span className="kpi-label"><Percent size={13} /> Discounts Conceded</span>
+              <span className="kpi-label"><Percent size={13} /> Discounts Given</span>
               <span className="kpi-value">${(overview.total_discount_dollars_lost / 1000000).toFixed(2)}M</span>
-              <span className="kpi-subtext">{overview.discounted_orders_pct.toFixed(1)}% discounted orders</span>
+              <span className="kpi-subtext">{overview.discounted_orders_pct.toFixed(1)}% of all orders</span>
             </div>
 
             <div className="kpi-card">
-              <span className="kpi-label"><ShoppingBag size={13} /> Avg Basket Size</span>
+              <span className="kpi-label"><ShoppingBag size={13} /> Basket Volume</span>
               <span className="kpi-value">{overview.avg_quantity_per_order.toFixed(2)} units</span>
-              <span className="kpi-subtext" style={{ color: '#DC2626' }}>Elasticity ε ≈ 0 (Zero lift)</span>
+              <span className="kpi-subtext" style={{ color: '#DC2626' }}>Zero elasticity (flat)</span>
             </div>
 
             <div className="kpi-card">
               <span className="kpi-label"><ShieldAlert size={13} /> Electronics Risk</span>
               <span className="kpi-value" style={{ color: '#DC2626' }}>-$7.51</span>
-              <span className="kpi-subtext">Margin at 30% discount</span>
+              <span className="kpi-subtext">Loss at 30% discount</span>
             </div>
           </div>
         </section>
@@ -149,56 +213,56 @@ export default function App() {
             className={`tab-btn ${activeTab === 'insights' ? 'active' : ''}`}
             onClick={() => setActiveTab('insights')}
           >
-            <Award size={15} /> 7 Key Insights
+            Insights Summary
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'visualizations' ? 'active' : ''}`}
             onClick={() => setActiveTab('visualizations')}
           >
-            <BarChart2 size={15} /> 4 Visualisations
+            4 Visualisations
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'categories' ? 'active' : ''}`}
             onClick={() => setActiveTab('categories')}
           >
-            <PieChart size={15} /> Category Profitability
+            Category Profitability
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'elasticity' ? 'active' : ''}`}
             onClick={() => setActiveTab('elasticity')}
           >
-            <ShoppingBag size={15} /> Volume Elasticity
+            Volume Elasticity
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'customers' ? 'active' : ''}`}
             onClick={() => setActiveTab('customers')}
           >
-            <Users size={15} /> Customer Journey
+            Customer Journey
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'ml' ? 'active' : ''}`}
             onClick={() => setActiveTab('ml')}
           >
-            <Cpu size={15} /> Regression & Simulator
+            Model & Simulator
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'action_plan' ? 'active' : ''}`}
             onClick={() => setActiveTab('action_plan')}
           >
-            <CheckCircle2 size={15} /> Action Plan
+            Action Plan
           </button>
 
           <button 
             className={`tab-btn ${activeTab === 'dataset' ? 'active' : ''}`}
             onClick={() => setActiveTab('dataset')}
           >
-            <FileText size={15} /> Dataset
+            Dataset
           </button>
         </div>
       </nav>
@@ -214,35 +278,47 @@ export default function App() {
 
         {!loading && (
           <>
-            {/* TAB 1: 7 KEY INSIGHTS (CLEAN & CONCISE) */}
+            {/* TAB 1: INSIGHTS (CLEAN TABLE / LIST - ZERO PARAGRAPH TEXT) */}
             {activeTab === 'insights' && (
-              <div>
-                <div className="white-panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
-                    Core Verdict: <strong>Discounts do not increase profit</strong> — volume is inelastic while conceding $6.78M in gross margin.
-                  </span>
-                  <span className="badge-critical insight-badge">UNPROFITABLE</span>
+              <div className="white-panel">
+                <div className="panel-header">
+                  <h2 className="panel-title">Key Insights & Empirical Findings</h2>
+                  <span className="badge-critical insight-badge">Verdict: Discounts Do Not Increase Profit</span>
                 </div>
 
-                <div className="insights-grid">
-                  {insights.map((item) => {
-                    let badgeClass = 'badge-proof';
-                    if (item.impact.includes('CRITICAL') || item.impact.includes('FLAW')) badgeClass = 'badge-critical';
-                    else if (item.impact.includes('RISK') || item.impact.includes('DRAIN') || item.impact.includes('DESTRUCTION')) badgeClass = 'badge-risk';
-                    else if (item.impact.includes('OPPORTUNITY') || item.impact.includes('LEVERAGE')) badgeClass = 'badge-opportunity';
-
-                    return (
-                      <div key={item.id} className="insight-card">
-                        <div className="insight-top">
-                          <span className={`insight-badge ${badgeClass}`}>{item.impact}</span>
-                          <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>#{item.id}</span>
-                        </div>
-                        <h3 className="insight-title">{item.title}</h3>
-                        <div className="insight-stat">{item.stat}</div>
-                        <p className="insight-point">{item.business_implication}</p>
-                      </div>
-                    );
-                  })}
+                <div className="table-wrapper">
+                  <table className="data-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Finding</th>
+                        <th>Empirical Metric</th>
+                        <th>Observation</th>
+                        <th>Status</th>
+                        <th>Prescriptive Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cleanInsights.map((item) => (
+                        <tr key={item.id}>
+                          <td style={{ color: 'var(--text-muted)', fontWeight: '600', width: '40px' }}>#{item.id}</td>
+                          <td style={{ fontWeight: '600' }}>{item.metric}</td>
+                          <td className="number-cell" style={{ fontWeight: '700', color: 'var(--text-primary)' }}>
+                            {item.value}
+                          </td>
+                          <td style={{ color: 'var(--text-secondary)' }}>{item.change}</td>
+                          <td>
+                            <span className={`insight-badge ${item.statusType === 'danger' ? 'badge-critical' : (item.statusType === 'warning' ? 'badge-risk' : 'badge-opportunity')}`}>
+                              {item.status}
+                            </span>
+                          </td>
+                          <td style={{ fontWeight: '500', color: 'var(--accent-blue)' }}>
+                            {item.action}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             )}
@@ -252,8 +328,8 @@ export default function App() {
               <div className="vis-grid">
                 <div className="vis-card">
                   <div className="insight-top">
-                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>Visualisation 1: Margin vs Discount by Category</span>
-                    <span className="badge-critical insight-badge">Electronics Loss</span>
+                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>1. Margin vs Discount by Category</span>
+                    <span className="badge-critical insight-badge">Electronics Loss (-$7.51)</span>
                   </div>
                   <div className="vis-image-container">
                     <img src={`${API_BASE}/visualizations/vis1_margin_vs_discount_by_category.png`} alt="Vis 1" className="vis-image" />
@@ -262,8 +338,8 @@ export default function App() {
 
                 <div className="vis-card">
                   <div className="insight-top">
-                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>Visualisation 2: Quantity vs Discount Elasticity</span>
-                    <span className="badge-critical insight-badge">Flat ~3.0 Units</span>
+                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>2. Sales Volume vs Discount Rate</span>
+                    <span className="badge-critical insight-badge">Inelastic (Flat ~3.0 Units)</span>
                   </div>
                   <div className="vis-image-container">
                     <img src={`${API_BASE}/visualizations/vis2_volume_vs_discount_elasticity.png`} alt="Vis 2" className="vis-image" />
@@ -272,8 +348,8 @@ export default function App() {
 
                 <div className="vis-card">
                   <div className="insight-top">
-                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>Visualisation 3: Full Price vs Discounted Performance</span>
-                    <span className="badge-risk insight-badge">-$132 Margin Dilution</span>
+                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>3. Full Price vs Discounted Orders</span>
+                    <span className="badge-risk insight-badge">-$132.31 Margin Penalty</span>
                   </div>
                   <div className="vis-image-container">
                     <img src={`${API_BASE}/visualizations/vis3_discounted_vs_nondiscounted_comparison.png`} alt="Vis 3" className="vis-image" />
@@ -282,8 +358,8 @@ export default function App() {
 
                 <div className="vis-card">
                   <div className="insight-top">
-                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>Visualisation 4: Customer Journey Margin</span>
-                    <span className="badge-proof insight-badge">Behavioral Drift</span>
+                    <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>4. Customer Order Margin by Type</span>
+                    <span className="badge-proof insight-badge">Loyal $437 vs Promo $305</span>
                   </div>
                   <div className="vis-image-container">
                     <img src={`${API_BASE}/visualizations/vis4_customer_journey_margin.png`} alt="Vis 4" className="vis-image" />
@@ -296,7 +372,7 @@ export default function App() {
             {activeTab === 'categories' && financials && (
               <div className="white-panel">
                 <div className="panel-header">
-                  <h2 className="panel-title"><PieChart size={18} /> Category Profitability Matrix</h2>
+                  <h2 className="panel-title">Category Profitability Matrix</h2>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Useful vs Margin-Destroying</span>
                 </div>
 
@@ -305,8 +381,8 @@ export default function App() {
                     <thead>
                       <tr>
                         <th>Category</th>
-                        <th>COGS Rate</th>
-                        <th>Total Orders</th>
+                        <th>COGS</th>
+                        <th>Orders</th>
                         <th>Full Price Margin</th>
                         <th>25%+ Discount Margin</th>
                         <th>Margin Drop</th>
@@ -343,8 +419,8 @@ export default function App() {
             {activeTab === 'elasticity' && financials && (
               <div className="white-panel">
                 <div className="panel-header">
-                  <h2 className="panel-title"><ShoppingBag size={18} /> Volume Elasticity by Discount Tier</h2>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Elasticity ε ≈ 0.01</span>
+                  <h2 className="panel-title">Volume Elasticity by Discount Tier</h2>
+                  <span className="badge-critical insight-badge">Flat Elasticity (ε ≈ 0.01)</span>
                 </div>
 
                 <div className="table-wrapper">
@@ -356,7 +432,7 @@ export default function App() {
                         <th>Mean Quantity</th>
                         <th>Mean Revenue</th>
                         <th>Mean Margin</th>
-                        <th>Margin Rate</th>
+                        <th>Margin %</th>
                         <th>Loss-Making Orders</th>
                       </tr>
                     </thead>
@@ -395,18 +471,18 @@ export default function App() {
               <div>
                 <div className="white-panel">
                   <div className="panel-header">
-                    <h2 className="panel-title"><Users size={18} /> Customer Journey: Before vs After Promotions</h2>
+                    <h2 className="panel-title">Customer Order Behavior Across Stages</h2>
                   </div>
                   <div className="table-wrapper">
                     <table className="data-table">
                       <thead>
                         <tr>
-                          <th>Journey Stage</th>
+                          <th>Stage</th>
                           <th>Orders</th>
-                          <th>Unique Customers</th>
+                          <th>Customers</th>
                           <th>Mean Revenue</th>
                           <th>Mean Margin</th>
-                          <th>Margin Rate</th>
+                          <th>Margin %</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -429,7 +505,7 @@ export default function App() {
 
                 <div className="white-panel">
                   <div className="panel-header">
-                    <h2 className="panel-title"><Users size={18} /> Customer Loyalty Segments</h2>
+                    <h2 className="panel-title">Customer Segments</h2>
                   </div>
                   <div className="table-wrapper">
                     <table className="data-table">
@@ -438,9 +514,9 @@ export default function App() {
                           <th>Segment</th>
                           <th>Customers</th>
                           <th>Orders/Cust</th>
-                          <th>Lifetime Revenue</th>
-                          <th>Lifetime Margin</th>
-                          <th>Total Segment Margin</th>
+                          <th>Mean LTV Revenue</th>
+                          <th>Mean LTV Margin</th>
+                          <th>Total Margin</th>
                           <th>Share</th>
                         </tr>
                       </thead>
@@ -468,7 +544,7 @@ export default function App() {
               <div>
                 <div className="white-panel">
                   <div className="panel-header">
-                    <h2 className="panel-title"><Cpu size={18} /> Linear Regression Model</h2>
+                    <h2 className="panel-title">Linear Regression Model Evaluation</h2>
                     <span className="badge-tag">R² = {mlData.r2_test.toFixed(4)} | MAE = ${mlData.mae_test.toFixed(2)}</span>
                   </div>
 
@@ -478,24 +554,24 @@ export default function App() {
                         <tr>
                           <th>Feature</th>
                           <th>Coefficient (β)</th>
-                          <th>Impact</th>
+                          <th>Marginal Effect</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {mlData.coefficients.slice(0, 7).map((c) => (
+                        {mlData.coefficients.slice(0, 6).map((c) => (
                           <tr key={c.feature}>
                             <td style={{ fontWeight: '600', fontFamily: 'var(--font-mono)' }}>{c.feature}</td>
                             <td className={`number-cell ${c.coefficient >= 0 ? 'profit-positive' : 'loss-negative'}`}>
                               {c.coefficient >= 0 ? `+${c.coefficient.toFixed(2)}` : c.coefficient.toFixed(2)}
                             </td>
-                            <td style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
-                              {c.feature === 'Discount' && 'Direct profit drag: -$65.82 per 10% discount'}
-                              {c.feature === 'Quantity' && '+$124.87 per additional unit'}
-                              {c.feature === 'Original_Price' && '+$1.22 per dollar of list price'}
+                            <td style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                              {c.feature === 'Discount' && '-$65.82 profit per 10% discount'}
+                              {c.feature === 'Quantity' && '+$124.87 gross profit per unit'}
+                              {c.feature === 'Original_Price' && '+$1.22 profit per dollar list price'}
                               {c.feature.includes('Books') && 'Highest baseline cushion (COGS 40%)'}
-                              {c.feature.includes('Clothing') && 'Strong margin resilience (COGS 45%)'}
-                              {c.feature === 'Logistics_Cost' && '-$1.00 dollar-for-dollar deduction'}
-                              {!['Discount', 'Quantity', 'Original_Price', 'Logistics_Cost'].includes(c.feature) && !c.feature.includes('Books') && !c.feature.includes('Clothing') && 'Relative category effect'}
+                              {c.feature.includes('Clothing') && 'Strong resilience (COGS 45%)'}
+                              {c.feature === 'Logistics_Cost' && '-$1.00 dollar-for-dollar cost'}
+                              {!['Discount', 'Quantity', 'Original_Price', 'Logistics_Cost'].includes(c.feature) && !c.feature.includes('Books') && !c.feature.includes('Clothing') && 'Category adjustment'}
                             </td>
                           </tr>
                         ))}
@@ -507,8 +583,8 @@ export default function App() {
                 {/* SIMULATOR */}
                 <div className="white-panel">
                   <div className="panel-header">
-                    <h2 className="panel-title"><Sliders size={18} /> Live Profit Simulator</h2>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>What-If Decision Engine</span>
+                    <h2 className="panel-title">Live Profit Simulator</h2>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>What-If Predictor</span>
                   </div>
 
                   <div className="simulator-container">
@@ -624,11 +700,11 @@ export default function App() {
               </div>
             )}
 
-            {/* TAB 8: DATASET PREVIEW */}
+            {/* TAB 8: DATASET */}
             {activeTab === 'dataset' && datasetSample && (
               <div className="white-panel">
                 <div className="panel-header">
-                  <h2 className="panel-title"><FileText size={18} /> Cleaned Dataset (50 Row Preview)</h2>
+                  <h2 className="panel-title">Cleaned Dataset (50 Row Preview)</h2>
                   <span className="badge-tag">100,000 Records</span>
                 </div>
 
@@ -677,7 +753,7 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        DS_Day01_15 • E-Commerce Discount & Profitability Intelligence • Python Flask + React.js
+        DS_Day01_15 • E-Commerce Discount & Profitability Intelligence
       </footer>
     </div>
   );
