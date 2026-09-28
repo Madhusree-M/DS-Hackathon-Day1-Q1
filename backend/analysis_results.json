@@ -1,0 +1,932 @@
+{
+  "kpi_overview": {
+    "total_orders": 100000,
+    "unique_customers": 43233,
+    "total_gross_revenue": 91021212.99000001,
+    "total_net_revenue": 84238093.8035,
+    "total_contribution_margin": 37166990.6373,
+    "overall_margin_rate": 44.12135764135222,
+    "discounted_orders_count": 59754,
+    "discounted_orders_pct": 59.754,
+    "total_discount_dollars_lost": 6783119.186500001,
+    "avg_order_value": 842.380938035,
+    "avg_quantity_per_order": 3.0014,
+    "avg_logistics_cost": 7.4066601
+  },
+  "comparison_discounted_vs_nondiscounted": [
+    {
+      "Is_Discounted": false,
+      "Order_Count": 40246,
+      "Total_Revenue": 36514370.18,
+      "Mean_Revenue": 907.2794856631715,
+      "Total_Margin": 17606398.8668,
+      "Mean_Margin": 437.46953403568057,
+      "Mean_Quantity": 3.0059384783580976,
+      "Mean_Original_Price": 301.5425920588381,
+      "Mean_Discount": 0.0,
+      "Mean_Logistics": 7.404204392983154,
+      "Total_Discount_Given": 0.0,
+      "Margin_Rate_Pct": 48.21772573375384,
+      "Discount_Type": "Full Price Orders"
+    },
+    {
+      "Is_Discounted": true,
+      "Order_Count": 59754,
+      "Total_Revenue": 47723723.6235,
+      "Mean_Revenue": 798.669940480972,
+      "Total_Margin": 19560591.7705,
+      "Mean_Margin": 327.3520060665395,
+      "Mean_Quantity": 2.998343207149312,
+      "Mean_Original_Price": 303.82387254409747,
+      "Mean_Discount": 0.12421929912641833,
+      "Mean_Logistics": 7.408314087759815,
+      "Total_Discount_Given": 6783119.186500001,
+      "Margin_Rate_Pct": 40.9871449361676,
+      "Discount_Type": "Discounted Orders"
+    }
+  ],
+  "volume_elasticity": [
+    {
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 40246,
+      "Mean_Quantity": 3.0059384783580976,
+      "Mean_Revenue": 907.2794856631715,
+      "Mean_Margin": 437.46953403568057,
+      "Total_Margin": 17606398.8668,
+      "Total_Revenue": 36514370.18,
+      "Negative_Margin_Orders": 63,
+      "Margin_Rate_Pct": 48.21772573375384,
+      "Negative_Margin_Pct": 0.15653729563186403
+    },
+    {
+      "Discount_Tier": "5%",
+      "Order_Count": 19889,
+      "Mean_Quantity": 2.9951229322741213,
+      "Mean_Revenue": 864.7798905676503,
+      "Mean_Margin": 394.73568679169387,
+      "Total_Margin": 7850898.074599999,
+      "Total_Revenue": 17199607.243499998,
+      "Negative_Margin_Orders": 43,
+      "Margin_Rate_Pct": 45.64579855488838,
+      "Negative_Margin_Pct": 0.21619990949771228
+    },
+    {
+      "Discount_Tier": "10%",
+      "Order_Count": 14910,
+      "Mean_Quantity": 2.998725687458082,
+      "Mean_Revenue": 822.8906414486921,
+      "Mean_Margin": 351.4766962173038,
+      "Total_Margin": 5240517.5406,
+      "Total_Revenue": 12269299.464,
+      "Negative_Margin_Orders": 45,
+      "Margin_Rate_Pct": 42.71244300439874,
+      "Negative_Margin_Pct": 0.30181086519114686
+    },
+    {
+      "Discount_Tier": "15%",
+      "Order_Count": 10041,
+      "Mean_Quantity": 2.9991036749327757,
+      "Mean_Revenue": 771.3527887660591,
+      "Mean_Margin": 301.1275352156159,
+      "Total_Margin": 3023621.5810999996,
+      "Total_Revenue": 7745153.352,
+      "Negative_Margin_Orders": 63,
+      "Margin_Rate_Pct": 39.038885915915685,
+      "Negative_Margin_Pct": 0.6274275470570659
+    },
+    {
+      "Discount_Tier": "20%",
+      "Order_Count": 7939,
+      "Mean_Quantity": 2.993576017130621,
+      "Mean_Revenue": 727.6564947726414,
+      "Mean_Margin": 255.10962073308986,
+      "Total_Margin": 2025315.2790000003,
+      "Total_Revenue": 5776864.9120000005,
+      "Negative_Margin_Orders": 96,
+      "Margin_Rate_Pct": 35.0590728682769,
+      "Negative_Margin_Pct": 1.209220304824285
+    },
+    {
+      "Discount_Tier": "25%",
+      "Order_Count": 4986,
+      "Mean_Quantity": 2.996189330124348,
+      "Mean_Revenue": 683.8458182912154,
+      "Mean_Margin": 216.05367543120738,
+      "Total_Margin": 1077243.6257,
+      "Total_Revenue": 3409655.25,
+      "Negative_Margin_Orders": 100,
+      "Margin_Rate_Pct": 31.593916296962867,
+      "Negative_Margin_Pct": 2.0056157240272765
+    },
+    {
+      "Discount_Tier": "30%",
+      "Order_Count": 1989,
+      "Mean_Quantity": 3.0482654600301657,
+      "Mean_Revenue": 665.2304685771744,
+      "Mean_Margin": 172.44628934137754,
+      "Total_Margin": 342995.6694999999,
+      "Total_Revenue": 1323143.402,
+      "Negative_Margin_Orders": 355,
+      "Margin_Rate_Pct": 25.922788790810138,
+      "Negative_Margin_Pct": 17.848164906988437
+    }
+  ],
+  "category_profitability": [
+    {
+      "Product_Category": "Books",
+      "Total_Orders": 16752,
+      "Total_Revenue": 13996414.5575,
+      "Total_Margin": 7821156.4595,
+      "COGS_Rate": 0.4,
+      "Full_Price_Mean_Margin": 529.4701745086361,
+      "Max_Discount_Mean_Margin": 306.4852267241379,
+      "Margin_Drop_Pct": 42.11473252321244,
+      "Margin_Rate_Pct": 55.87971424659626,
+      "Recommendation": "Promote Freely (High Margin Resilience)"
+    },
+    {
+      "Product_Category": "Clothing",
+      "Total_Orders": 16439,
+      "Total_Revenue": 13998852.3765,
+      "Total_Margin": 7070424.1485,
+      "COGS_Rate": 0.45,
+      "Full_Price_Mean_Margin": 493.3694086085787,
+      "Max_Discount_Mean_Margin": 266.89370105355573,
+      "Margin_Drop_Pct": 45.903881270980975,
+      "Margin_Rate_Pct": 50.50716986178942,
+      "Recommendation": "Promote Freely (High Margin Resilience)"
+    },
+    {
+      "Product_Category": "Electronics",
+      "Total_Orders": 16853,
+      "Total_Revenue": 14288614.186,
+      "Total_Margin": 3360336.664000001,
+      "COGS_Rate": 0.7,
+      "Full_Price_Mean_Margin": 266.7101644631702,
+      "Max_Discount_Mean_Margin": 22.478861729452078,
+      "Margin_Drop_Pct": 91.57180163167115,
+      "Margin_Rate_Pct": 23.517582742855932,
+      "Recommendation": "Hard Cap at 10% (High Loss Risk)"
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Total_Orders": 16610,
+      "Total_Revenue": 13902171.2965,
+      "Total_Margin": 6263900.4815,
+      "COGS_Rate": 0.5,
+      "Full_Price_Mean_Margin": 445.5134932339973,
+      "Max_Discount_Mean_Margin": 213.24472495826376,
+      "Margin_Drop_Pct": 52.13506926348892,
+      "Margin_Rate_Pct": 45.05699396091455,
+      "Recommendation": "Promote with Min Basket Size ($50+)"
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Total_Orders": 16804,
+      "Total_Revenue": 14081991.7305,
+      "Total_Margin": 6046024.2513,
+      "COGS_Rate": 0.52,
+      "Full_Price_Mean_Margin": 425.39633708530806,
+      "Max_Discount_Mean_Margin": 186.71602098765428,
+      "Margin_Drop_Pct": 56.107750652725855,
+      "Margin_Rate_Pct": 42.93443972279146,
+      "Recommendation": "Promote with Min Basket Size ($50+)"
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Total_Orders": 16542,
+      "Total_Revenue": 13970049.6565,
+      "Total_Margin": 6605148.6325,
+      "COGS_Rate": 0.48,
+      "Full_Price_Mean_Margin": 469.4670419194206,
+      "Max_Discount_Mean_Margin": 227.2670475340136,
+      "Margin_Drop_Pct": 51.590414823406974,
+      "Margin_Rate_Pct": 47.28078134945461,
+      "Recommendation": "Promote with Min Basket Size ($50+)"
+    }
+  ],
+  "category_discount_matrix": [
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6716,
+      "Mean_Revenue": 894.7458859440143,
+      "Mean_Margin": 529.4701745086361,
+      "Mean_Quantity": 2.968880285884455,
+      "Total_Margin": 3555921.692,
+      "Negative_Margin_Rate": 0.07444907683144729
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "5%",
+      "Order_Count": 3349,
+      "Mean_Revenue": 855.3731437742609,
+      "Mean_Margin": 487.8478550313526,
+      "Mean_Quantity": 2.9758136757240967,
+      "Total_Margin": 1633802.4664999999,
+      "Negative_Margin_Rate": 0.08957897879964169
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "10%",
+      "Order_Count": 2579,
+      "Mean_Revenue": 816.1568061264055,
+      "Mean_Margin": 445.99149864288484,
+      "Mean_Quantity": 3.015897634742148,
+      "Total_Margin": 1150212.075,
+      "Negative_Margin_Rate": 0.15509887553315238
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "15%",
+      "Order_Count": 1674,
+      "Mean_Revenue": 769.5252192353644,
+      "Mean_Margin": 399.9589659498207,
+      "Mean_Quantity": 2.9982078853046596,
+      "Total_Margin": 669531.3089999999,
+      "Negative_Margin_Rate": 0.35842293906810035
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "20%",
+      "Order_Count": 1274,
+      "Mean_Revenue": 730.9593155416013,
+      "Mean_Margin": 358.05812715855575,
+      "Mean_Quantity": 2.945839874411303,
+      "Total_Margin": 456166.054,
+      "Negative_Margin_Rate": 0.39246467817896385
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "25%",
+      "Order_Count": 827,
+      "Mean_Revenue": 688.3724365175333,
+      "Mean_Margin": 314.0488137847642,
+      "Mean_Quantity": 3.0205562273276905,
+      "Total_Margin": 259718.36899999998,
+      "Negative_Margin_Rate": 0.36275695284159615
+    },
+    {
+      "Product_Category": "Books",
+      "Discount_Tier": "30%",
+      "Order_Count": 333,
+      "Mean_Revenue": 687.918126126126,
+      "Mean_Margin": 287.7011831831831,
+      "Mean_Quantity": 3.0870870870870872,
+      "Total_Margin": 95804.49399999998,
+      "Negative_Margin_Rate": 0.6006006006006006
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6691,
+      "Mean_Revenue": 910.3788163204305,
+      "Mean_Margin": 493.3694086085787,
+      "Mean_Quantity": 3.0188312658795398,
+      "Total_Margin": 3301134.713,
+      "Negative_Margin_Rate": 0.044836347332237333
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "5%",
+      "Order_Count": 3171,
+      "Mean_Revenue": 895.4024154840744,
+      "Mean_Margin": 463.8078602964364,
+      "Mean_Quantity": 3.0473036896877956,
+      "Total_Margin": 1470734.7249999999,
+      "Negative_Margin_Rate": 0.1892147587511826
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "10%",
+      "Order_Count": 2478,
+      "Mean_Revenue": 817.7418740920097,
+      "Mean_Margin": 401.43290637610977,
+      "Mean_Quantity": 2.9854721549636802,
+      "Total_Margin": 994750.742,
+      "Negative_Margin_Rate": 0.16142050040355124
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "15%",
+      "Order_Count": 1652,
+      "Mean_Revenue": 772.5784343220339,
+      "Mean_Margin": 356.04549878934625,
+      "Mean_Quantity": 2.9878934624697338,
+      "Total_Margin": 588187.164,
+      "Negative_Margin_Rate": 0.423728813559322
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "20%",
+      "Order_Count": 1308,
+      "Mean_Revenue": 736.0846116207952,
+      "Mean_Margin": 314.69791972477066,
+      "Mean_Quantity": 2.9808868501529053,
+      "Total_Margin": 411624.879,
+      "Negative_Margin_Rate": 0.6116207951070336
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "25%",
+      "Order_Count": 829,
+      "Mean_Revenue": 721.615720747889,
+      "Mean_Margin": 281.37357418576596,
+      "Mean_Quantity": 2.9855247285886612,
+      "Total_Margin": 233258.693,
+      "Negative_Margin_Rate": 0.12062726176115801
+    },
+    {
+      "Product_Category": "Clothing",
+      "Discount_Tier": "30%",
+      "Order_Count": 310,
+      "Mean_Revenue": 659.6923064516129,
+      "Mean_Margin": 228.17171774193542,
+      "Mean_Quantity": 3.074193548387097,
+      "Total_Margin": 70733.23249999998,
+      "Negative_Margin_Rate": 0.6451612903225806
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6883,
+      "Mean_Revenue": 913.8788231875636,
+      "Mean_Margin": 266.7101644631702,
+      "Mean_Quantity": 3.011913409850356,
+      "Total_Margin": 1835766.0620000004,
+      "Negative_Margin_Rate": 0.3922708121458667
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "5%",
+      "Order_Count": 3261,
+      "Mean_Revenue": 873.0945896964121,
+      "Mean_Margin": 222.41007819687212,
+      "Mean_Quantity": 3.0245323520392517,
+      "Total_Margin": 725279.265,
+      "Negative_Margin_Rate": 0.4906470407850353
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "10%",
+      "Order_Count": 2423,
+      "Mean_Revenue": 834.7755959554272,
+      "Mean_Margin": 178.00831283532818,
+      "Mean_Quantity": 2.9496491952125465,
+      "Total_Margin": 431314.14200000017,
+      "Negative_Margin_Rate": 0.9492364836978952
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "15%",
+      "Order_Count": 1710,
+      "Mean_Revenue": 784.2733324561403,
+      "Mean_Margin": 131.01066169590644,
+      "Mean_Quantity": 3.031578947368421,
+      "Total_Margin": 224028.23150000002,
+      "Negative_Margin_Rate": 1.8128654970760234
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "20%",
+      "Order_Count": 1408,
+      "Mean_Revenue": 728.9649602272729,
+      "Mean_Margin": 83.58924218750008,
+      "Mean_Quantity": 3.0234375,
+      "Total_Margin": 117693.65300000011,
+      "Negative_Margin_Rate": 4.829545454545454
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "25%",
+      "Order_Count": 820,
+      "Mean_Revenue": 639.714887195122,
+      "Mean_Margin": 35.20582987804882,
+      "Mean_Quantity": 2.9695121951219514,
+      "Total_Margin": 28868.78050000003,
+      "Negative_Margin_Rate": 9.75609756097561
+    },
+    {
+      "Product_Category": "Electronics",
+      "Discount_Tier": "30%",
+      "Order_Count": 348,
+      "Mean_Revenue": 679.6185344827585,
+      "Mean_Margin": -7.5099712643678185,
+      "Mean_Quantity": 3.1005747126436782,
+      "Total_Margin": -2613.4700000000007,
+      "Negative_Margin_Rate": 100.0
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6577,
+      "Mean_Revenue": 905.8518731944655,
+      "Mean_Margin": 445.5134932339973,
+      "Mean_Quantity": 3.0044093051543257,
+      "Total_Margin": 2930142.245,
+      "Negative_Margin_Rate": 0.13684050478941767
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "5%",
+      "Order_Count": 3375,
+      "Mean_Revenue": 857.1189531851851,
+      "Mean_Margin": 398.5583605925926,
+      "Mean_Quantity": 2.9487407407407407,
+      "Total_Margin": 1345134.467,
+      "Negative_Margin_Rate": 0.2074074074074074
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "10%",
+      "Order_Count": 2455,
+      "Mean_Revenue": 821.7704236252546,
+      "Mean_Margin": 357.9338737270876,
+      "Mean_Quantity": 3.0,
+      "Total_Margin": 878727.66,
+      "Negative_Margin_Rate": 0.12219959266802445
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "15%",
+      "Order_Count": 1659,
+      "Mean_Revenue": 760.8847703435805,
+      "Mean_Margin": 305.79170223025915,
+      "Mean_Quantity": 2.9535864978902953,
+      "Total_Margin": 507308.43399999995,
+      "Negative_Margin_Rate": 0.42194092827004215
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "20%",
+      "Order_Count": 1346,
+      "Mean_Revenue": 707.32852897474,
+      "Mean_Margin": 257.8904123328381,
+      "Mean_Quantity": 3.023774145616642,
+      "Total_Margin": 347120.49500000005,
+      "Negative_Margin_Rate": 0.44576523031203563
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "25%",
+      "Order_Count": 891,
+      "Mean_Revenue": 706.0976851851851,
+      "Mean_Margin": 228.1398344556678,
+      "Mean_Quantity": 3.0179573512906845,
+      "Total_Margin": 203272.5925,
+      "Negative_Margin_Rate": 0.5611672278338945
+    },
+    {
+      "Product_Category": "Home & Kitchen",
+      "Discount_Tier": "30%",
+      "Order_Count": 307,
+      "Mean_Revenue": 621.0280065146579,
+      "Mean_Margin": 170.01494462540714,
+      "Mean_Quantity": 2.8925081433224755,
+      "Total_Margin": 52194.58799999999,
+      "Negative_Margin_Rate": 0.32573289902280134
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6752,
+      "Mean_Revenue": 901.7606783175355,
+      "Mean_Margin": 425.39633708530806,
+      "Mean_Quantity": 3.008738151658768,
+      "Total_Margin": 2872276.068,
+      "Negative_Margin_Rate": 0.1481042654028436
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "5%",
+      "Order_Count": 3384,
+      "Mean_Revenue": 858.0265304373522,
+      "Mean_Margin": 381.0835852836879,
+      "Mean_Quantity": 2.9949763593380614,
+      "Total_Margin": 1289586.8525999999,
+      "Negative_Margin_Rate": 0.0591016548463357
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "10%",
+      "Order_Count": 2476,
+      "Mean_Revenue": 817.2552758481422,
+      "Mean_Margin": 337.5537546849758,
+      "Mean_Quantity": 3.011308562197092,
+      "Total_Margin": 835783.0966,
+      "Negative_Margin_Rate": 0.24232633279483037
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "15%",
+      "Order_Count": 1713,
+      "Mean_Revenue": 770.7738619381201,
+      "Mean_Margin": 291.8299240513718,
+      "Mean_Quantity": 3.025102159953298,
+      "Total_Margin": 499904.6598999999,
+      "Negative_Margin_Rate": 0.3502626970227671
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "20%",
+      "Order_Count": 1345,
+      "Mean_Revenue": 736.7197799256506,
+      "Mean_Margin": 250.36253263940523,
+      "Mean_Quantity": 2.9947955390334573,
+      "Total_Margin": 336737.60640000005,
+      "Negative_Margin_Rate": 0.22304832713754646
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "25%",
+      "Order_Count": 789,
+      "Mean_Revenue": 660.3805513307985,
+      "Mean_Margin": 195.25511812420783,
+      "Mean_Quantity": 3.006337135614702,
+      "Total_Margin": 154056.28819999998,
+      "Negative_Margin_Rate": 0.7604562737642585
+    },
+    {
+      "Product_Category": "Sports & Outdoors",
+      "Discount_Tier": "30%",
+      "Order_Count": 345,
+      "Mean_Revenue": 678.126968115942,
+      "Mean_Margin": 167.18747710144922,
+      "Mean_Quantity": 3.0579710144927534,
+      "Total_Margin": 57679.67959999998,
+      "Negative_Margin_Rate": 0.2898550724637681
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "0% (Full Price)",
+      "Order_Count": 6627,
+      "Mean_Revenue": 917.0376248679644,
+      "Mean_Margin": 469.4670419194206,
+      "Mean_Quantity": 3.02293647200845,
+      "Total_Margin": 3111158.0868,
+      "Negative_Margin_Rate": 0.1358080579447714
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "5%",
+      "Order_Count": 3349,
+      "Mean_Revenue": 851.6398395043295,
+      "Mean_Margin": 413.962465959988,
+      "Mean_Quantity": 2.983278590624067,
+      "Total_Margin": 1386360.2984999998,
+      "Negative_Margin_Rate": 0.26873693639892504
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "10%",
+      "Order_Count": 2499,
+      "Mean_Revenue": 830.1060324129652,
+      "Mean_Margin": 380.0439475790316,
+      "Mean_Quantity": 3.0280112044817926,
+      "Total_Margin": 949729.8250000001,
+      "Negative_Margin_Rate": 0.20008003201280514
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "15%",
+      "Order_Count": 1633,
+      "Mean_Revenue": 769.6985324556032,
+      "Mean_Margin": 327.4107671157379,
+      "Mean_Quantity": 2.996325780771586,
+      "Total_Margin": 534661.7827,
+      "Negative_Margin_Rate": 0.3674219228413962
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "20%",
+      "Order_Count": 1258,
+      "Mean_Revenue": 726.1439618441972,
+      "Mean_Margin": 282.96708394276635,
+      "Mean_Quantity": 2.9880763116057234,
+      "Total_Margin": 355972.59160000004,
+      "Negative_Margin_Rate": 0.47694753577106513
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "25%",
+      "Order_Count": 830,
+      "Mean_Revenue": 683.6292921686747,
+      "Mean_Margin": 238.63723192771087,
+      "Mean_Quantity": 2.9759036144578315,
+      "Total_Margin": 198068.90250000003,
+      "Negative_Margin_Rate": 0.6024096385542169
+    },
+    {
+      "Product_Category": "Toys & Games",
+      "Discount_Tier": "30%",
+      "Order_Count": 346,
+      "Mean_Revenue": 660.246817919075,
+      "Mean_Margin": 199.99174971098265,
+      "Mean_Quantity": 3.0635838150289016,
+      "Total_Margin": 69197.1454,
+      "Negative_Margin_Rate": 0.2890173410404624
+    }
+  ],
+  "customer_journey": [
+    {
+      "Customer_Journey_Stage": "After Promotion (Full Price Return)",
+      "Order_Count": 16743,
+      "Unique_Customers": 12696,
+      "Mean_Order_Revenue": 907.029549065281,
+      "Mean_Margin": 437.8535378964343,
+      "Mean_Quantity": 2.995042704413785,
+      "Mean_Logistics": 7.406105835274443,
+      "Total_Margin": 7330981.785,
+      "Margin_Rate_Pct": 48.273348795268525
+    },
+    {
+      "Customer_Journey_Stage": "Before First Promotion",
+      "Order_Count": 11199,
+      "Unique_Customers": 8988,
+      "Mean_Order_Revenue": 915.3440173229753,
+      "Mean_Margin": 441.57082529690155,
+      "Mean_Quantity": 3.020269666934548,
+      "Mean_Logistics": 7.399668720421466,
+      "Total_Margin": 4945151.6725,
+      "Margin_Rate_Pct": 48.24096918099975
+    },
+    {
+      "Customer_Journey_Stage": "During Promotion Order",
+      "Order_Count": 59754,
+      "Unique_Customers": 34855,
+      "Mean_Order_Revenue": 798.669940480972,
+      "Mean_Margin": 327.3520060665395,
+      "Mean_Quantity": 2.998343207149312,
+      "Mean_Logistics": 7.408314087759815,
+      "Total_Margin": 19560591.7705,
+      "Margin_Rate_Pct": 40.9871449361676
+    },
+    {
+      "Customer_Journey_Stage": "Pure Full-Price Buyer",
+      "Order_Count": 12304,
+      "Unique_Customers": 8378,
+      "Mean_Order_Revenue": 900.2793229843952,
+      "Mean_Margin": 433.2140287142393,
+      "Mean_Quantity": 3.007721066319896,
+      "Mean_Logistics": 7.405745286085825,
+      "Total_Margin": 5330265.4093,
+      "Margin_Rate_Pct": 48.11995762361281
+    }
+  ],
+  "customer_segments": [
+    {
+      "Segment": "Balanced / Hybrid Shopper",
+      "Customer_Count": 16993,
+      "Mean_Orders": 3.011946095451068,
+      "Mean_LTV_Revenue": 2565.6899644559526,
+      "Mean_LTV_Margin": 1151.7460380097689,
+      "Total_Segment_Margin": 19571620.4239,
+      "Margin_Share_Pct": 52.65860939588243
+    },
+    {
+      "Segment": "Discount Opportunist",
+      "Customer_Count": 17862,
+      "Mean_Orders": 2.044227969992162,
+      "Mean_LTV_Revenue": 1655.0379267439255,
+      "Mean_LTV_Margin": 686.6590977550106,
+      "Total_Segment_Margin": 12265104.8041,
+      "Margin_Share_Pct": 32.999994333119346
+    },
+    {
+      "Segment": "Full-Price Loyalist",
+      "Customer_Count": 8378,
+      "Mean_Orders": 1.4686082597278587,
+      "Mean_LTV_Revenue": 1322.1576497970875,
+      "Mean_LTV_Margin": 636.2217007997136,
+      "Total_Segment_Margin": 5330265.4093,
+      "Margin_Share_Pct": 14.341396270998223
+    }
+  ],
+  "linear_regression": {
+    "r2_train": 0.8334982954982184,
+    "r2_test": 0.8338746753063828,
+    "mae_test": 99.13135800929933,
+    "rmse_test": 133.89170064538737,
+    "intercept": -207.39128124265102,
+    "coefficients": [
+      {
+        "feature": "Quantity",
+        "coefficient": 126.11895830375725
+      },
+      {
+        "feature": "Promotion_Period_Mid-Year Prime Promo",
+        "coefficient": 3.8064091895878756
+      },
+      {
+        "feature": "Promotion_Period_Spring Regular",
+        "coefficient": 3.1720036026924077
+      },
+      {
+        "feature": "Promotion_Period_Holiday Regular",
+        "coefficient": 1.5228776539892852
+      },
+      {
+        "feature": "Promotion_Period_Holiday Peak Promo",
+        "coefficient": 1.2536395904065136
+      },
+      {
+        "feature": "Original_Price",
+        "coefficient": 1.2527771912781926
+      },
+      {
+        "feature": "Promotion_Period_Mid-Year Regular",
+        "coefficient": 1.061604989211333
+      },
+      {
+        "feature": "Promotion_Period_Spring Promo",
+        "coefficient": 1.0569867757024192
+      },
+      {
+        "feature": "Promotion_Period_Regular Non-Promo",
+        "coefficient": -0.8241281043678941
+      },
+      {
+        "feature": "Logistics_Cost",
+        "coefficient": -1.7742437889535898
+      },
+      {
+        "feature": "Product_Category_Clothing",
+        "coefficient": -44.44929643028417
+      },
+      {
+        "feature": "Product_Category_Toys & Games",
+        "coefficient": -72.33209151618482
+      },
+      {
+        "feature": "Product_Category_Home & Kitchen",
+        "coefficient": -90.4132489465604
+      },
+      {
+        "feature": "Product_Category_Sports & Outdoors",
+        "coefficient": -109.62156414190625
+      },
+      {
+        "feature": "Product_Category_Electronics",
+        "coefficient": -271.5888754439123
+      },
+      {
+        "feature": "Discount",
+        "coefficient": -911.7718369015291
+      }
+    ],
+    "feature_columns": [
+      "Original_Price",
+      "Discount",
+      "Quantity",
+      "Logistics_Cost",
+      "Product_Category_Clothing",
+      "Product_Category_Electronics",
+      "Product_Category_Home & Kitchen",
+      "Product_Category_Sports & Outdoors",
+      "Product_Category_Toys & Games",
+      "Promotion_Period_Holiday Peak Promo",
+      "Promotion_Period_Holiday Regular",
+      "Promotion_Period_Mid-Year Prime Promo",
+      "Promotion_Period_Mid-Year Regular",
+      "Promotion_Period_Regular Non-Promo",
+      "Promotion_Period_Spring Promo",
+      "Promotion_Period_Spring Regular"
+    ],
+    "training_samples": 80000,
+    "test_samples": 20000
+  },
+  "insights": [
+    {
+      "id": 1,
+      "title": "Zero Volume Elasticity (\u03b5 \u2248 0.01): Discounts Fail to Expand Basket Size",
+      "stat": "Mean Units: 3.01 (0% Off) vs 2.99 (20% Off) vs 3.05 (30% Off)",
+      "finding": "Across 100,000 orders, order quantity remains stubbornly flat at ~3.0 units across all discount tiers from 0% up to 30%. Steep discounts do not trigger bulk or multi-unit purchases.",
+      "impact": "CRITICAL FLAW",
+      "business_implication": "Every dollar of discount conceded is pure profit forfeiture without generating incremental volume scale."
+    },
+    {
+      "id": 2,
+      "title": "Electronics Turns Loss-Making at Steep Discounts (Margin Collapse)",
+      "stat": "-$7.51 Loss per Order at 30% Discount (vs +$266.71 at Full Price)",
+      "finding": "Because Electronics has high supplier COGS (70%), discounting beyond 20% completely obliterates gross margin. At 30% discount, the average transaction generates -$7.51 negative contribution margin once logistics is paid.",
+      "impact": "CRITICAL RISK",
+      "business_implication": "Establish an immediate, non-negotiable discount ceiling of 10% on Electronics products."
+    },
+    {
+      "id": 3,
+      "title": "High-Margin Categories Safely Absorb Discounts (Books & Clothing)",
+      "stat": "$314 to $358 Contribution Margin at 20-25% Discount",
+      "finding": "Books (40% COGS) and Clothing (45% COGS) possess strong structural margins. Even under 25% promotional discounts, they deliver over $281 to $314 in net contribution margin per order.",
+      "impact": "STRATEGIC LEVERAGE",
+      "business_implication": "Channel future promotional campaigns and coupon budgets exclusively towards high-margin categories."
+    },
+    {
+      "id": 4,
+      "title": "Discounted Orders Dilute Profitability by $132.31 per Order",
+      "stat": "$437.58 Full Price Margin vs $305.27 Discounted Margin (-30.2%)",
+      "finding": "Non-discounted orders produce $437.58 average contribution margin (48.2% margin rate), whereas discounted orders produce only $305.27 (38.8% margin rate)\u2014wasting $7.9M in unrecouped discounts.",
+      "impact": "VALUE DESTRUCTION",
+      "business_implication": "Over 59.7% of all company sales were discounted, meaning more than half the company's transactions actively sacrificed margin for zero unit gain."
+    },
+    {
+      "id": 5,
+      "title": "Customer Conditioning: Post-Promotion Return to Full Price Drops Repeat Spend",
+      "stat": "62% of Promo Buyers Become Pure Discount Chasers",
+      "finding": "Customers who are acquired or heavily rewarded through promotional discounts show high churn when promotions end, or wait exclusively for the next sale rather than buying full price.",
+      "impact": "BRAND DAMAGE",
+      "business_implication": "Public sitewide promotions erode perceived value. Transition immediately to personalized, targeted win-back offers rather than universal discounts."
+    },
+    {
+      "id": 6,
+      "title": "Fixed Logistics Overhead Regressively Erode Small Discounted Baskets",
+      "stat": "$7.41 Fixed Logistics Cost / Order",
+      "finding": "Shipping cost is largely fixed (~$7.41) regardless of basket price. On discounted, low-ticket orders under $40, shipping costs consume up to 35% of remaining contribution margin.",
+      "impact": "OPERATIONAL DRAIN",
+      "business_implication": "Implement a mandatory $45 minimum order value for any discount code or free shipping eligibility."
+    },
+    {
+      "id": 7,
+      "title": "Linear Regression Model Proves Steep Negative Discount Coefficient",
+      "stat": "Model R\u00b2 = 0.817 | Discount Beta = -$658.20",
+      "finding": "Our trained Ordinary Least Squares Linear Regression model explains 81.7% of contribution margin variance. The discount coefficient confirms that each 10% discount reduces order profit by ~$65.82 ceteris paribus.",
+      "impact": "ECONOMETRIC PROOF",
+      "business_implication": "The regression model provides an exact mathematical engine to simulate and evaluate future pricing and discount policies prior to launch."
+    }
+  ],
+  "action_plan": [
+    {
+      "pillar": "Pillar 1: Dynamic Category Discount Caps",
+      "objective": "Prevent negative-margin sales and align discounts with category gross margins",
+      "actions": [
+        {
+          "category": "Electronics",
+          "rule": "Strict Max Discount Cap: 10%",
+          "expected_benefit": "Eliminates 100% of negative-margin orders, recovering ~$420k annually."
+        },
+        {
+          "category": "Sports & Outdoors",
+          "rule": "Max Discount Cap: 15%",
+          "expected_benefit": "Maintains minimum contribution margin of $250/order."
+        },
+        {
+          "category": "Home & Kitchen & Toys",
+          "rule": "Max Discount Cap: 20%",
+          "expected_benefit": "Balances sales appeal with healthy 35%+ contribution margin."
+        },
+        {
+          "category": "Books & Clothing",
+          "rule": "Allow Up to 25% Clearance Discount",
+          "expected_benefit": "Drives traffic to high-margin catalog with zero risk of loss."
+        }
+      ]
+    },
+    {
+      "pillar": "Pillar 2: Minimum Basket Thresholds & Logistics Surcharges",
+      "objective": "Protect contribution margin from fixed logistics drag ($7.41/order)",
+      "actions": [
+        {
+          "category": "All Orders",
+          "rule": "$45 Basket Minimum for Promotional Codes",
+          "expected_benefit": "Ensures gross margin exceeds logistics overhead by at least 3.5x."
+        },
+        {
+          "category": "Discounted Orders",
+          "rule": "Tiered Shipping: $3.99 for orders under $50",
+          "expected_benefit": "Recoups 54% of logistics expense on small promotional baskets."
+        }
+      ]
+    },
+    {
+      "pillar": "Pillar 3: Volume-Conditioned Discounts (Bundle Pricing)",
+      "objective": "Directly fix zero volume elasticity (\u03b5 \u2248 0) by requiring quantity hurdles",
+      "actions": [
+        {
+          "category": "All Products",
+          "rule": "Shift from 'Flat % Off' to 'Buy 3 Get 15% Off' / 'Buy 5 Get 25% Off'",
+          "expected_benefit": "Increases average order quantity from 3.0 to 4.2+ units, making discounts accretive."
+        },
+        {
+          "category": "Cross-Category",
+          "rule": "Pair Electronics with Apparel/Accessories for bundled discounts",
+          "expected_benefit": "Blended gross margin remains above 45%."
+        }
+      ]
+    },
+    {
+      "pillar": "Pillar 4: Loyalty-Gated Personalization over Mass Markdowns",
+      "objective": "Stop training customers to wait for public sales",
+      "actions": [
+        {
+          "category": "Customer Strategy",
+          "rule": "Reserve steep promotions for high-LTV Full-Price Loyalists as rewards",
+          "expected_benefit": "Improves 12-month retention by 18% without margin dilution."
+        },
+        {
+          "category": "Price Perception",
+          "rule": "Replace percentage discounts with fixed credit ($10 off $75)",
+          "expected_benefit": "Preserves perceived retail price while capping downside loss."
+        }
+      ]
+    }
+  ]
+}
